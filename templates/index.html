@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Prediction</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f2f2f2; }
+        input { margin-bottom: 10px; padding: 8px; width: 200px; }
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    padding: 40px;
+    text-align: center;
+}
+ body {
+     background-image:url("../static/img.png");
+     background-size: cover;       /* Scale to cover entire screen */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    background-position: center;  /* Center the image */
+    background-attachment: fixed; /* Optional: keep image fixed while scrolling */
+    font-family: Arial, sans-serif;
+ }
+ img{
+     width: auto;
+     height: auto;
+ }
+h2 {
+    color: #0e0909;
+    margin-bottom: 30px;
+}
+
+form {
+    display: inline-block;
+    padding: 30px;
+    background-color: #2c2c2c;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin: 10px 0;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 28px;
+    font-size: 16px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 50px; /* more round */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* subtle base shadow */
+    transition: all 0.3s ease;
+
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* darker shadow on hover */
+}
+
+button:active {
+    transform: translateY(2px); /* press-down effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* slightly smaller shadow */
+}
+
+.result {
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+.result.positive {
+    background-color: #ffdddd;
+    color: #a70000;
+    border: 1px solid #a70000;
+}
+
+.result.negative {
+    background-color: #ddffdd;
+    color: #006400;
+    border: 1px solid #006400;
+}
+
+    </style>
+</head>
+<body>
+    <h2>Diabetes Risk Predictor</h2>
+    <form action="/predict" method="post">
+        <input type="number" step="any" name="Pregnancies" placeholder="Pregnancies" required><br>
+        <input type="number" step="any" name="Glucose" placeholder="Glucose" required><br>
+        <input type="number" step="any" name="BloodPressure" placeholder="Blood Pressure" required><br>
+        <input type="number" step="any" name="SkinThickness" placeholder="Skin Thickness" required><br>
+        <input type="number" step="any" name="Insulin" placeholder="Insulin" required><br>
+        <input type="number" step="any" name="BMI" placeholder="BMI" required><br>
+        <input type="number" step="any" name="DiabetesPedigreeFunction" placeholder="DPF" required><br>
+        <input type="number" step="any" name="Age" placeholder="Age" required><br>
+        <input type="submit" value="Check Risk">
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
